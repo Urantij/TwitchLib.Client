@@ -17,8 +17,8 @@ namespace TwitchLib.Communication.Clients
     {
         private int NotConnectedCounter;
         public TimeSpan DefaultKeepAliveInterval { get; set; }
-        public int SendQueueLength => _throttlers.SendQueue.Count;
-        public int WhisperQueueLength => _throttlers.WhisperQueue.Count;
+        public int SendQueueLength => _throttlers.SendQueueCount;
+        public int WhisperQueueLength => _throttlers.WhisperQueueCount;
         public bool IsConnected => Client?.State == WebSocketState.Open;
         public IClientOptions Options { get; }
         public ClientWebSocket Client { get; private set; }
@@ -36,7 +36,7 @@ namespace TwitchLib.Communication.Clients
         public event EventHandler<OnReconnectedEventArgs> OnReconnected;
 
         private string Url { get; }
-        private readonly Throttlers _throttlers;
+        private readonly AsyncThrottlers _throttlers;
         private CancellationTokenSource _tokenSource = new CancellationTokenSource();
         private bool _stopServices;
         private bool _networkServicesRunning;
@@ -59,7 +59,7 @@ namespace TwitchLib.Communication.Clients
                     throw new ArgumentOutOfRangeException();
             }
 
-            _throttlers = new Throttlers(this, Options.ThrottlingPeriod, Options.WhisperThrottlingPeriod) { TokenSource = _tokenSource };
+            _throttlers = new AsyncThrottlers(this, Options.ThrottlingPeriod, Options.WhisperThrottlingPeriod) { TokenSource = _tokenSource };
         }
 
         private void InitializeClient()
@@ -127,7 +127,7 @@ namespace TwitchLib.Communication.Clients
                     return false;
                 }
 
-                _throttlers.SendQueue.Add(new Tuple<DateTime, string>(DateTime.UtcNow, message));
+                _throttlers.AddSendQueue(new Tuple<DateTime, string>(DateTime.UtcNow, message));
 
                 return true;
             }
@@ -147,7 +147,7 @@ namespace TwitchLib.Communication.Clients
                     return false;
                 }
 
-                _throttlers.WhisperQueue.Add(new Tuple<DateTime, string>(DateTime.UtcNow, message));
+                _throttlers.AddWhisperQueue(new Tuple<DateTime, string>(DateTime.UtcNow, message));
 
                 return true;
             }
