@@ -29,6 +29,6 @@
   <ItemGroup>
     <ProjectReference Include="..\TwitchLib.Client.Enums\TwitchLib.Client.Enums.csproj" />
     <ProjectReference Include="..\TwitchLib.Client.Models\TwitchLib.Client.Models.csproj" />
-    <ProjectReference Include="..\TwitchLib.Communication\src\TwitchLib.Communication\TwitchLib.Communication.csproj" />
+    <ProjectReference Include="..\TwitchLib.Communication_я_не_понимаю_как_работает_гит\src\TwitchLib.Communication\TwitchLib.Communication.csproj" />
   </ItemGroup>
 </Project>

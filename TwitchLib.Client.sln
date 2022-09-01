@@ -15,11 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7495B75C-C41
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8C69E628-6CFC-4F25-8CAC-EC63927C0120}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TwitchLib.Communication", "TwitchLib.Communication", "{E92AE087-46CD-4CF5-82BB-A188C222E33F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TwitchLib.Communication", "TwitchLib.Communication_я_не_понимаю_как_работает_гит", "{E92AE087-46CD-4CF5-82BB-A188C222E33F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{04B59D1C-F257-45C8-8918-8927143FE0AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchLib.Communication", "TwitchLib.Communication\src\TwitchLib.Communication\TwitchLib.Communication.csproj", "{5BA03A5E-2D78-4BD6-9E08-0C83EEAFF90F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchLib.Communication", "TwitchLib.Communication_я_не_понимаю_как_работает_гит\src\TwitchLib.Communication\TwitchLib.Communication.csproj", "{5BA03A5E-2D78-4BD6-9E08-0C83EEAFF90F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
